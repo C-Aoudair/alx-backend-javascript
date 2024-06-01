@@ -17,7 +17,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
           myResults.push(
             {
               status: result.status,
-              value: result.reason,
+              value: String(result.reason),
             },
           );
         }
@@ -25,3 +25,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       return myResults;
     });
 }
+
+
