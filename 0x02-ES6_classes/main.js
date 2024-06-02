@@ -1,12 +1,14 @@
-import listOfStudents from "./9-hoisting.js";
-import { HolbertonClass, StudentHolberton } from "./9-hoisting.js";
+import Car from "./10-car.js";
 
-console.log(listOfStudents);
-console.log((listOfStudents[0] instanceof StudentHolberton));
-console.log(listOfStudents[0].holbertonClass instanceof HolbertonClass);
+class TestCar extends Car {}
 
-const listPrinted = listOfStudents.map(
-    student => student.fullStudentDescription
-);
+const tc1 = new TestCar("Nissan", "Turbo", "Pink");
+const tc2 = tc1.cloneCar();
 
-console.log(listPrinted)
+console.log(tc1);
+console.log(tc1 instanceof TestCar);
+
+console.log(tc2);
+console.log(tc2 instanceof TestCar);
+
+console.log(tc1 == tc2);
