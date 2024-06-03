@@ -1,5 +1,6 @@
 node_modules/
+.bable.config.js
+package.json
+package-lock.json
 dist/
-env
-.eslintrc.cjs
-bable.config.js
+.env
