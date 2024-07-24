@@ -5,6 +5,6 @@ const app = createServer((request, response) => {
   response.end('Hello Holberton School!');
 });
 
-app.listen(1245, () => {
-  console.log('Server is running ...');
-});
+app.listen(1245, () => {});
+
+module.exports = app
