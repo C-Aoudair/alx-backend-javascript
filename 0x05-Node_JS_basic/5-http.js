@@ -5,13 +5,12 @@ function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (error, data) => {
       if (error) {
-        reject(new Error('Cannot load the database'));
-        return;
+        return reject(new Error('Cannot load the database'));
       }
       const lines = data
         .split('\n')
         .slice(1)
-        .filter((line) => line);
+        .filter(Boolean);
 
       const fields = lines.reduce((acc, line) => {
         const [name, , , field] = line.split(',');
@@ -51,6 +50,8 @@ const app = createServer((request, response) => {
   }
 });
 
-app.listen(1245, () => {});
+app.listen(1245, () => {
+  console.log('Server is listening on port 1245');
+});
 
 module.exports = app;
