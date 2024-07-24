@@ -37,7 +37,7 @@ const app = createServer((request, response) => {
   } else if (url === '/students') {
     countStudents(process.argv[2])
       .then((result) => {
-	let message = 'This is the list of our students\n'
+        let message = 'This is the list of our students\n';
         message += `Number of students: ${result.numOfStudents}\n`;
         for (const [field, { count, list }] of Object.entries(result.fields)) {
           message += `Number of students in ${field}: ${count}. List: ${list.join(', ')}\n`;
@@ -45,7 +45,7 @@ const app = createServer((request, response) => {
         response.end(message);
       })
       .catch((error) => {
-        response.end(`${error}`);
+        response.end(`This is the list of our students\n${error}`);
       });
   }
 });
