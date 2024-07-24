@@ -35,7 +35,8 @@ const app = createServer((request, response) => {
   if (url === '/') {
     response.end('Hello Holberton School!');
   } else if (url === '/students') {
-    countStudents(process.argv[2])
+    const PATH = process.argv.length > 2 ? process.argv[2] : '';
+    countStudents(PATH)
       .then((result) => {
         let message = 'This is the list of our students\n';
         message += `Number of students: ${result.numOfStudents}\n`;
