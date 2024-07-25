@@ -24,7 +24,7 @@ export default class StudentsController {
     const { major } = request.params;
 
     if (!['CS', 'SWE'].includes(major)) {
-      return response.status(400).send('Major parameter must be CS or SWE');
+      return response.status(500).send('Major parameter must be CS or SWE');
     }
 
     const path = process.argv[2] || '';
