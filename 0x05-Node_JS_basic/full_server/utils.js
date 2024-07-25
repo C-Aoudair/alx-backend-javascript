@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs';
 
 export default function readDatabase(path) {
   return new Promise((resolve, reject) => {
