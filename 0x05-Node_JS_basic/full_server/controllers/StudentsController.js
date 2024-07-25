@@ -1,11 +1,11 @@
 import readDatabase from '../utils';
 
-const PATH = process.argv[2] || '';
-
 export default class StudentsController {
   static async getAllStudents(request, response) {
+    const path = process.argv[2] || '';
+
     try {
-      const data = await readDatabase(PATH);
+      const data = await readDatabase(path);
       const messages = ['This is the list of our students'];
 
       Object.keys(data).sort().forEach((field) => {
@@ -27,8 +27,10 @@ export default class StudentsController {
       return response.status(400).send('Major parameter must be CS or SWE');
     }
 
+    const path = process.argv[2] || '';
+
     try {
-      const data = await readDatabase(PATH);
+      const data = await readDatabase(path);
       return response.status(200).send(`List: ${data[major].join(', ')}`);
     } catch (error) {
       return response.status(500).send('Cannot load the database');
